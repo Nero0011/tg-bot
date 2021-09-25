@@ -15,6 +15,7 @@ const startGame = async (chatId) => {
 const bot = new TelegramApi(token, {polling: true})
 
 const start = () => {
+    
     bot.setMyCommands([
         {command: '/start', description: 'Начальное приветствие'},
         {command: '/info', description: 'Дополнительная Информация'},
@@ -37,6 +38,7 @@ const start = () => {
         return (bot.sendMessage(chatId, 'Я тебя не понимаю'));
         console.log(msg);
     })
+    
     bot.on('callback_query', async msg => {
         const data = msg.data;
         const chatId = msg.message.chat.id;
